@@ -10,3 +10,6 @@
 
 ## Known Issues
 - If the name of a singer or track contains Japanese, it will crash UNLESS the locale settings on Windows is set to Japanese
+
+
+This software is made all thanks to [flet](https://flet.dev/), [ShazamIO](https://github.com/shazamio/ShazamIO), and more! Check out their website if you are interested.
