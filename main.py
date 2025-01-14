@@ -120,14 +120,8 @@ async def main(page: ft.Page):
                     if audio.tags is None:
                         audio.add_tags()
                     with open(f"{temp}/CoverGen/data/{track_name}/thumbnail.jpg" if os.path.exists(f"{temp}/CoverGen/data/{track_name}/thumbnail.jpg") else "CoverGen/src/assets/Cover.jpg", "rb") as f:
-                        audio.tags.add(
-                            APIC(
-                                encoding=0, # 3 is for utf-8
-                                mime="image/jpeg", # image/jpeg or image/png
-                                type=3, # 3 is for the cover image
-                                desc=u"Cover",
-                                data=f.read()
-                            ))
+                        audio.tags.add(APIC(encoding=0,mime="image/jpeg",type=3, desc=u"Cover", data=f.read()))
+                        
                 elif track_path.suffix == ".flac":
                     audio = FLAC(track.path)
                     audio["title"] = track.title
@@ -254,4 +248,4 @@ async def main(page: ft.Page):
         ft.Row([cover]),
         ft.Row([error]))
 
-ft.app(target=main)
+ft.app(target=main, assets_dir="assets")
